@@ -32,5 +32,4 @@ function newton_rapson(f,d,x0,tol)
      println("Las interacciones son ",i,",y la aproximación más precisa es ", x1)
 end
 
-newton_rapson(f,d,12,1*10^(-5))
-
+newton_rapson(f,d,12,1*10^(-5))S
