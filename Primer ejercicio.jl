@@ -3,7 +3,7 @@ a=rand(100,100)
 cero=0
 #bucle
 for j=1:100
-    if j in 2j+j
+    if isood(j)
     
         suma_impar=sum(a[j])
       cero =suma_impar
