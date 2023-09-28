@@ -32,26 +32,3 @@ end
 
 newton_rapson(f, 9, 1, 1 * 10^(-5))
 
-
-
-
-using Plots
-
-# Definir una función de ejemplo que mapea de ℝ² a ℝ²
-function example_mapping(x, y)
-    return [x + 2y, x - y]
-end
-
-# Punto en el espacio de entrada
-x0, y0 = 1.0, 2.0
-
-# Calcular el Jacobiano en el punto (x0, y0)
-function jacobian_mapping(f, x, y)
-    J = [forwarddiff(f, i, [x, y]) for i in 1:2]
-    return hcat(J...)
-end
-
-Jacobian = jacobian_mapping(example_mapping, x0, y0)
-
-# Visualizar el Jacobiano como una matriz
-heatmap(Jacobian, aspect_ratio=:equal, color=:auto, c=:balance, title="Jacobiano")
