@@ -31,4 +31,3 @@ function newton_rapson(f, x0, y0, tol)
 end
 
 newton_rapson(f, 9, 1, 1 * 10^(-5))
-
