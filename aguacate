@@ -1,0 +1,29 @@
+n, m  = A.shape
+
+def QR(A):
+    Q = np.zeros((n,m)) #Matriz Q
+    U = np.zeros((n,m)) #Matriz ortonogal. NO está normalizada 
+    E = np.copy(Q) #Copia de la matriz Q, se va a normalizar. 
+    R = np.zeros((n,m))
+    U[:,0] = A[:,0] 
+    E[:,0] = U[:,0]/np.linalg.norm(U[:,0])
+    
+    for i in range(m):
+        U[:,i] = A[:,i]
+        
+        for j in range(i):
+            U[:,i] -= A[:,i]*(np.dot(A[:,i],E[:,j]))*E[:,j]
+        
+        E[:,i] = U[:,i]/np.linalg.norm(U[:,i])
+    
+    Q = E
+    
+    for i in range(n):
+        for j in range(i,m):
+            R[i,j] = np.dot(E[:,i],A[:,j])
+    
+    print(R, "\n")
+    print(Q, "\n")
+    print(E)
+
+QR(A)
